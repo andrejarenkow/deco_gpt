@@ -2,6 +2,13 @@ import streamlit as st
 from openai import OpenAI
 import os
 
+# Inicialização
+if 'contador' not in st.session_state:
+    st.session_state['contador'] = 0
+
+# Alternativamente, você pode usar a sintaxe de atributo
+if 'contador' not in st.session_state:
+    st.session_state.contador = 0
 
 # Setup OpenAI
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
@@ -29,8 +36,8 @@ import streamlit as st
 # Função para armazenar a página principal
 def pagina_principal():
     # Verifica se a chave 'mensagens' existe no st.session_state
-   #if 'mensagens' not in st.session_state:
-   #     st.session_state.mensagens = 'a'  # Inicializa 'mensagens' como uma lista vazia
+   if 'mensagens' not in st.session_state:
+        st.session_state.mensagens = []  # Inicializa 'mensagens' como uma lista vazia
 
    #mensagens = st.session_state['mensagens']  # Acessa a lista de mensagens
    mensagens = []
