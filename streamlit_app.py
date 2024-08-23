@@ -55,6 +55,8 @@ def pagina_principal():
       for resposta in respostas:
          resposta_completa += resposta.choices[0].delta.content
          chat.markdown(resposta_completa + '| ')
+      nova_mensagem = {'role':'assistant', 'content':resposta_completa}
+      mensagens.append(nova_mensagem)
 
       st.session_state['mensagens'] = mensagens
 
