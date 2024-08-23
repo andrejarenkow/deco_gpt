@@ -28,7 +28,7 @@ def retorna_resposta_modelo(mensagens,
 def pagina_principal():
 
    if not 'mensagens' in st.session_state:
-      st.session_state['mensagens'] = []
+      st.session_state.mensagens = []
 
    mensagens = st.session_state['mensagens']
    
