@@ -46,6 +46,17 @@ def pagina_principal():
       chat = st.chat_message(nova_mensagem['role'])
       chat.markdown(nova_mensagem['content'])
       mensagens.append(nova_mensagem)
+      
+
+      chat = st.chat_message('assistant')
+      resposta_completa = ''
+      respostas = retorna_resposta_modelo(mensagens,
+                                          openai_key,
+                                          stream=True)
+      for resposta in respostas:
+         resposta_completa += resposta.choices[0].delta.content
+         chat.markdown(resposta_completa + '| ')
+
       st.session_state['mensagens'] = mensagens
 
 pagina_principal()
