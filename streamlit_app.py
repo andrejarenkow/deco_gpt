@@ -1,8 +1,10 @@
+import streamlit as st
+
 # Setup OpenAI
 
 from openai import OpenAI
 import os
-OPENAI_API_KEY = ''
+OPENAI_API_KEY = st.text_input(label = 'API')
 
 client = OpenAI(
    api_key=OPENAI_API_KEY,
