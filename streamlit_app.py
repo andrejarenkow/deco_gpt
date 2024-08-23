@@ -33,7 +33,7 @@ def pagina_principal():
    if 'mensagens' not in st.session_state:
         st.session_state['mensagens'] = []  # Inicializa 'mensagens' como uma lista vazia
 
-   mensagens = st.session_state['mensagens']  # Acessa a lista de mensagens
+   #mensagens = st.session_state['mensagens']  # Acessa a lista de mensagens
 
    st.header('Deco GPT', divider=True)
 
