@@ -2,13 +2,6 @@ import streamlit as st
 from openai import OpenAI
 import os
 
-# Inicialização
-if 'contador' not in st.session_state:
-    st.session_state['contador'] = 0
-
-# Alternativamente, você pode usar a sintaxe de atributo
-if 'contador' not in st.session_state:
-    st.session_state.contador = 0
 
 # Setup OpenAI
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
@@ -39,8 +32,8 @@ def pagina_principal():
    if 'mensagens' not in st.session_state:
         st.session_state.mensagens = []  # Inicializa 'mensagens' como uma lista vazia
 
-   #mensagens = st.session_state['mensagens']  # Acessa a lista de mensagens
-   mensagens = []
+   mensagens = st.session_state['mensagens']  # Acessa a lista de mensagens
+
    st.header('Deco GPT', divider=True)
 
    for mensagem in mensagens:
@@ -53,6 +46,6 @@ def pagina_principal():
       chat = st.chat_message(nova_mensagem['role'])
       chat.markdown(nova_mensagem['content'])
       mensagens.append(nova_mensagem)
-      #st.session_state['mensagens'] = mensagens
+      st.session_state['mensagens'] = mensagens
 
 pagina_principal()
