@@ -46,6 +46,6 @@ def pagina_principal():
       chat = st.chat_message(nova_mensagem['role'])
       chat.markdown(nova_mensagem['content'])
       mensagens.append(nova_mensagem)
-      st.session_state['mensagens'] = mensagens
+      #st.session_state['mensagens'] = mensagens
 
 pagina_principal()
