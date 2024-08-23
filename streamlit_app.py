@@ -12,7 +12,7 @@ client = OpenAI(
 
 # Criar função para retornar a mensagem do modelo
 def retorna_resposta_modelo(mensagens,
-                            OPENAI_API_KEY,
+                            openai_key = OPENAI_API_KEY,
                             modelo = 'gpt-4o-mini',
                             temperatura=0,
                             stream=False):
@@ -51,7 +51,6 @@ def pagina_principal():
       chat = st.chat_message('assistant')
       resposta_completa = ''
       respostas = retorna_resposta_modelo(mensagens,
-                                          openai_key,
                                           stream=True)
       for resposta in respostas:
          resposta_completa += resposta.choices[0].delta.content
