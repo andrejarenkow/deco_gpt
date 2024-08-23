@@ -28,16 +28,11 @@ def retorna_resposta_modelo(mensagens,
 def pagina_principal():
 
    if not 'mensagens' in st.session_state:
-      st.session_state = []
+      st.session_state['mensagens'] = []
 
    mensagens = st.session_state['mensagens']
    
    st.header('Deco GPT', divider = True)
-
-   #Mensagens exemplo
-   mensagens = [{'role': 'user', 'content': 'O que é uma maçã em cinco palavras?'},
-                {'role': 'assistant', 'content': 'Fruta, saudável, doce, crocante, nutritiva.'},
-                {'role': 'user', 'content': 'E qual é o seu tamanho?'}]
    
    for mensagem in mensagens:
       chat = st.chat_message(mensagem['role'])
