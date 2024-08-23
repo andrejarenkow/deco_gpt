@@ -55,10 +55,15 @@ def pagina_principal():
       respostas = retorna_resposta_modelo(mensagens,
                                           stream=True)
       for resposta in respostas:
-         resposta_completa += str(resposta.choices[0].delta.content)
-         placeholder.markdown(resposta_completa + '| ')
-      nova_mensagem = {'role':'assistant', 'content':resposta_completa}
-      mensagens.append(nova_mensagem)
+          # Verifica se o conteúdo da resposta não é None antes de concatenar
+          if resposta.choices[0].delta.content is not None:
+              resposta_completa += str(resposta.choices[0].delta.content)
+              placeholder.markdown(resposta_completa + '| ')  # Atualiza o placeholder com o conteúdo parcial
+      
+      # Cria a nova mensagem apenas se houver conteúdo na resposta completa
+      if resposta_completa:
+          nova_mensagem = {'role': 'assistant', 'content': resposta_completa}
+          mensagens.append(nova_mensagem)
 
       st.session_state['mensagens'] = mensagens
 
