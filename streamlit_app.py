@@ -28,15 +28,12 @@ import streamlit as st
 
 # Função para armazenar a página principal
 def pagina_principal():
-   # Read
-   st.write(st.session_state)
     # Verifica se a chave 'mensagens' existe no st.session_state
    #if 'mensagens' not in st.session_state:
    #     st.session_state.mensagens = 'a'  # Inicializa 'mensagens' como uma lista vazia
-   if 'key' not in st.session_state:
-    st.session_state['key'] = 'value'
-   #mensagens = st.session_state['mensagens']  # Acessa a lista de mensagens
 
+   #mensagens = st.session_state['mensagens']  # Acessa a lista de mensagens
+   mensagens = []
    st.header('Deco GPT', divider=True)
 
    for mensagem in mensagens:
