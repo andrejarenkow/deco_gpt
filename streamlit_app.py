@@ -1,9 +1,9 @@
 import streamlit as st
-
-# Setup OpenAI
-
 from openai import OpenAI
 import os
+
+
+# Setup OpenAI
 OPENAI_API_KEY = st.text_input(label = 'API')
 
 client = OpenAI(
@@ -23,3 +23,9 @@ def retorna_resposta_modelo(mensagens,
     stream = stream
 )
   return response
+
+# Função para armazenar a página principal
+def pagina_principal():
+   st.header('Deco GPT', divider = True)
+
+pagina_principal()
