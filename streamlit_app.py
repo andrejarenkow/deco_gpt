@@ -53,7 +53,7 @@ def pagina_principal():
       respostas = retorna_resposta_modelo(mensagens,
                                           stream=True)
       for resposta in respostas:
-         resposta_completa += resposta.choices[0].delta.content
+         resposta_completa += str(resposta.choices[0].delta.content)
          chat.markdown(resposta_completa + '| ')
       nova_mensagem = {'role':'assistant', 'content':resposta_completa}
       mensagens.append(nova_mensagem)
