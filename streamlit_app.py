@@ -28,9 +28,10 @@ import streamlit as st
 
 # Função para armazenar a página principal
 def pagina_principal():
-
+   # Read
+   st.write(st.session_state)
     # Verifica se a chave 'mensagens' existe no st.session_state
-   if not 'mensagens' in st.session_state:
+   if 'mensagens' not in st.session_state:
         st.session_state.mensagens = []  # Inicializa 'mensagens' como uma lista vazia
 
    #mensagens = st.session_state['mensagens']  # Acessa a lista de mensagens
