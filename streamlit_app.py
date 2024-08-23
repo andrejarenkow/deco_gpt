@@ -12,7 +12,7 @@ client = OpenAI(
 
 # Criar função para retornar a mensagem do modelo
 def retorna_resposta_modelo(mensagens,
-                            openai_key,
+                            OPENAI_API_KEY,
                             modelo = 'gpt-4o-mini',
                             temperatura=0,
                             stream=False):
