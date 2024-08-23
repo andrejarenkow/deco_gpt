@@ -66,7 +66,7 @@ def pagina_principal():
           # Verifica se o conteúdo da resposta não é None antes de concatenar
           if resposta.choices[0].delta.content is not None:
               resposta_completa += str(resposta.choices[0].delta.content)
-              placeholder.markdown(resposta_completa + '| ')  # Atualiza o placeholder com o conteúdo parcial
+              placeholder.markdown(resposta_completa)  # Atualiza o placeholder com o conteúdo parcial
       
       # Cria a nova mensagem apenas se houver conteúdo na resposta completa
       if resposta_completa:
