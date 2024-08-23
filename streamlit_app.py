@@ -2,6 +2,14 @@ import streamlit as st
 from openai import OpenAI
 import os
 
+# Configurações da página
+st.set_page_config(
+    page_title="DecoGPT",
+    page_icon="	:robot:",
+    #layout="wide",
+    #initial_sidebar_state='collapsed'
+) 
+
 
 # Setup OpenAI
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
