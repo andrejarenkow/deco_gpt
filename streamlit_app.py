@@ -26,6 +26,12 @@ def retorna_resposta_modelo(mensagens,
 
 # Função para armazenar a página principal
 def pagina_principal():
+
+   if not 'mensagens' in st.session_state:
+      st.session_state = []
+
+   mensagens = st.session_state['mensagens']
+   
    st.header('Deco GPT', divider = True)
 
    #Mensagens exemplo
@@ -42,6 +48,7 @@ def pagina_principal():
       nova_mensagem = {'role':'user', 'content':prompt}
       chat = st.chat_message(nova_mensagem['role'])
       chat.markdown(nova_mensagem['content'])
-      mensagens.append(mensagens)
+      mensagens.append(nova_mensagem)
+      st.session_state['mensagens'] = mensagens
 
 pagina_principal()
