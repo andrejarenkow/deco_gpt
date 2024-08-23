@@ -35,6 +35,6 @@ def pagina_principal():
    
    for mensagem in mensagens:
       chat = st.chat_message(mensagem['role'])
-      chat.markdown(mensagem.content)
+      chat.markdown(mensagem['content'])
 
 pagina_principal()
