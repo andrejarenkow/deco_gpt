@@ -21,7 +21,7 @@ client = OpenAI(
 # Criar função para retornar a mensagem do modelo
 def retorna_resposta_modelo(mensagens,
                             openai_key = OPENAI_API_KEY,
-                            modelo = 'gpt-4o-mini',
+                            modelo = 'gpt-4o-mini-2024-07-18',
                             temperatura=0,
                             stream=False):
   response = client.chat.completions.create(
