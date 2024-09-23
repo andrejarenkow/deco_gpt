@@ -14,6 +14,7 @@ st.set_page_config(
 # Setup OpenAI
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
+
 client = OpenAI(
    api_key=OPENAI_API_KEY,
  )
@@ -22,6 +23,23 @@ client = OpenAI(
 def retorna_resposta_modelo(mensagens,
                             openai_key = OPENAI_API_KEY,
                             modelo = 'gpt-4o-mini-2024-07-18',
+                            temperatura=0,
+                            stream=False):
+  response = client.chat.completions.create(
+    model = modelo,
+    messages = mensagens,
+    temperature = temperatura,
+    stream = stream
+)
+  return response
+
+# Setup Groq
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+
+# Criar função para retornar a mensagem do modelo
+def retorna_resposta_modelo_groq(mensagens,
+                            api_key = GROQ_API_KEY,
+                            modelo = 'llama3-8b-8192',
                             temperatura=0,
                             stream=False):
   response = client.chat.completions.create(
@@ -60,7 +78,7 @@ def pagina_principal():
       resposta_completa = ''
 
       placeholder.markdown('| ')
-      respostas = retorna_resposta_modelo(mensagens,
+      respostas = retorna_resposta_modelo_groq(mensagens,
                                           stream=True)
       for resposta in respostas:
           # Verifica se o conteúdo da resposta não é None antes de concatenar
