@@ -1,6 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 import os
+from groq import Groq
 
 # Configurações da página
 st.set_page_config(
