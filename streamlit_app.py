@@ -26,7 +26,7 @@ def retorna_resposta_modelo(mensagens,
                             modelo = 'gpt-4o-mini-2024-07-18',
                             temperatura=0,
                             stream=False):
-    response = client.chat.completions.create(
+  response = client.chat.completions.create(
     model = modelo,
     messages = mensagens,
     temperature = temperatura,
@@ -47,7 +47,7 @@ def retorna_resposta_modelo_groq(mensagens,
                             modelo = 'llama3-8b-8192',
                             temperatura=0,
                             stream=True):
-    response = clientgroq.chat.completions.create(
+  response = clientgroq.chat.completions.create(
     model = modelo,
     messages = mensagens,
     temperature = temperatura,
