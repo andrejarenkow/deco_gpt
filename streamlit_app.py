@@ -79,7 +79,7 @@ def pagina_principal():
       resposta_completa = ''
 
       placeholder.markdown('| ')
-      respostas = retorna_resposta_modelo_groq(mensagens,
+      respostas = retorna_resposta_modelo(mensagens,
                                           stream=True)
       for resposta in respostas:
           # Verifica se o conteúdo da resposta não é None antes de concatenar
