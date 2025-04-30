@@ -1,4 +1,3 @@
-@@ -1,101 +1,78 @@
 import streamlit as st
 from openai import OpenAI
 import os
