@@ -1,7 +1,7 @@
 import streamlit as st
-from openai import OpenAI
 import os
 from groq import Groq
+from pandasai import SmartDataframe
 
 # Configurações da página
 st.set_page_config(
@@ -12,34 +12,17 @@ st.set_page_config(
 ) 
 
 
-# Setup OpenAI
-OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
-
-
-client = OpenAI(
-   api_key=OPENAI_API_KEY,
- )
-
-# Criar função para retornar a mensagem do modelo
-def retorna_resposta_modelo(mensagens,
-                            openai_key = OPENAI_API_KEY,
-                            modelo = 'gpt-4o-mini-2024-07-18',
-                            temperatura=0,
-                            stream=False):
-  response = client.chat.completions.create(
-    model = modelo,
-    messages = mensagens,
-    temperature = temperatura,
-    stream = stream
-)
-  return response
-
 # Setup Groq
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
 clientgroq = Groq(
    api_key=GROQ_API_KEY,
  )
+
+llm = ChatGroq(
+    model_name="mixtral-8x7b-32768", 
+    api_key = st.secrets["GROQ_API_KEY"]
+)
 
 # Criar função para retornar a mensagem do modelo
 def retorna_resposta_modelo_groq(mensagens,
