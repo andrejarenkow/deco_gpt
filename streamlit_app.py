@@ -50,7 +50,7 @@ def pagina_principal():
 
    prompt = st.chat_input('Fale com o chat', accept_file = True)
    if prompt:
-      nova_mensagem = {'role':'user', 'content':prompt}
+      nova_mensagem = {'role':'user', 'content':prompt['text']}
       chat = st.chat_message(nova_mensagem['role'])
       chat.markdown(nova_mensagem['content'])
       mensagens.append(nova_mensagem)
