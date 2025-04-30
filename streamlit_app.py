@@ -44,7 +44,7 @@ clientgroq = Groq(
 # Criar função para retornar a mensagem do modelo
 def retorna_resposta_modelo_groq(mensagens,
                             api_key = GROQ_API_KEY,
-                            modelo = 'llama3-8b-8192',
+                            modelo = 'deepseek-r1-distill-llama-70b',
                             temperatura=0,
                             stream=True):
   response = clientgroq.chat.completions.create(
