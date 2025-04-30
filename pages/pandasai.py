@@ -2,6 +2,8 @@ import streamlit as st
 import os
 from groq import Groq
 from pandasai import SmartDataframe
+import pandas as pd
+
 
 # Configurações da página
 st.set_page_config(
@@ -24,6 +26,10 @@ llm = ChatGroq(
     api_key = st.secrets["GROQ_API_KEY"]
 )
 
+# Importação dos dados
+data = pd.read_csv("/content/escolas_estaduais.csv", sep = ';')
+data
+
 # Criar função para retornar a mensagem do modelo
 def retorna_resposta_modelo_groq(mensagens,
                             api_key = GROQ_API_KEY,
@@ -38,7 +44,7 @@ def retorna_resposta_modelo_groq(mensagens,
 )
   return response
 
-import streamlit as st
+
 
 # Função para armazenar a página principal
 def pagina_principal():
