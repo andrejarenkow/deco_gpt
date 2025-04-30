@@ -48,7 +48,7 @@ def pagina_principal():
       chat = st.chat_message(mensagem['role'])
       chat.markdown(mensagem['content'])
 
-   prompt = st.chat_input('Fale com o chat')
+   prompt = st.chat_input('Fale com o chat', accept_file = True)
    if prompt:
       nova_mensagem = {'role':'user', 'content':prompt}
       chat = st.chat_message(nova_mensagem['role'])
