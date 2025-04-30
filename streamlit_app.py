@@ -36,16 +36,26 @@ with st.sidebar:
 
 # Criar função para retornar a mensagem do modelo
 def retorna_resposta_modelo_groq(mensagens,
-                            api_key=GROQ_API_KEY,
-                            modelo=model,
-                            temperatura=0,
-                            stream=True):
-    response = clientgroq.chat.completions.create(
-        model=modelo,
-        messages=mensagens,
-        temperature=temperatura,
-        stream=stream
-    )
+                                   api_key=GROQ_API_KEY,
+                                   modelo=model,
+                                   temperatura=0,
+                                   stream=True):
+    if modelo == 'deepseek-r1-distill-llama-70b':
+        response = clientgroq.chat.completions.create(
+            model=modelo,
+            messages=mensagens,
+            temperature=temperatura,
+            stream=stream,
+            reasoning_format="hidden"  # Adiciona o parâmetro para este modelo específico
+        )
+    else:
+        response = clientgroq.chat.completions.create(
+            model=modelo,
+            messages=mensagens,
+            temperature=temperatura,
+            stream=stream
+        )
+
     return response
 
 # Função para armazenar a página principal
