@@ -65,7 +65,7 @@ def pagina_principal():
 
    mensagens = st.session_state['mensagens']  # Acessa a lista de mensagens
 
-   st.header('Deco GPT', divider=True)
+   st.header('Pandas AI', divider=True)
 
    for mensagem in mensagens:
       chat = st.chat_message(mensagem['role'])
