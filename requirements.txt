@@ -4,3 +4,4 @@ ipykernel
 streamlit
 unidecode
 groq
+uuid
