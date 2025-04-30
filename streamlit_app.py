@@ -26,30 +26,6 @@ clientgroq = Groq(
     api_key=GROQ_API_KEY,
 )
 
-# Função para gerar áudio a partir de texto
-def gerar_audio(texto):
-    try:
-        # Configurações para o modelo de TTS
-        model = "playai-tts"
-        voice = "Fritz-PlayAI"  # Você pode escolher outras vozes disponíveis
-        response_format = "wav"
-
-        response = clientgroq.audio.speech.create(
-            model=model,
-            voice=voice,
-            input=texto,
-            response_format=response_format
-        )
-
-        # Gera um nome único para o arquivo
-        filename = f"speech_{uuid.uuid4()}.wav"
-        response.write_to_file(filename)
-
-        return filename
-
-    except Exception as e:
-        st.error(f"Erro ao gerar áudio: {str(e)}")
-        return None
 
 # Selecionando o modelo que vai fazer a resposta
 with st.sidebar:
@@ -108,21 +84,7 @@ def pagina_principal():
             nova_mensagem = {'role': 'assistant', 'content': resposta_completa}
             mensagens.append(nova_mensagem)
 
-            # Gera o áudio da resposta
-            audio_file = gerar_audio(resposta_completa)
 
-            if audio_file:
-                # Cria um player de áudio
-                st.audio(audio_file, format='audio/wav')
-
-                # Opcional: Ofereça a opção de download
-                with open(audio_file, "rb") as audio_file:
-                    st.download_button(
-                        label="Download do áudio",
-                        data=audio_file,
-                        file_name=audio_file.name,
-                        mime="audio/wav"
-                    )
 
         st.session_state['mensagens'] = mensagens
 
