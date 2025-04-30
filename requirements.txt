@@ -5,3 +5,11 @@ streamlit
 unidecode
 groq
 uuid
+streamlit
+groq
+langchain
+langchain-groq
+python-dotenv
+beautifulsoup4
+faiss-cpu
+ollama
