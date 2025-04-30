@@ -21,7 +21,7 @@ clientgroq = Groq(
 # Criar função para retornar a mensagem do modelo
 def retorna_resposta_modelo_groq(mensagens,
                             api_key = GROQ_API_KEY,
-                            modelo = 'meta-llama/llama-4-scout-17b-16e-instruct'#'llama3-8b-8192',
+                            modelo = 'meta-llama/llama-4-scout-17b-16e-instruct',#'llama3-8b-8192',
                             temperatura=0,
                             stream=True):
   response = clientgroq.chat.completions.create(
