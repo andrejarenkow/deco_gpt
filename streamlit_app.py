@@ -47,7 +47,7 @@ with st.sidebar:
                                                           'llama-3.3-70b-versatile',
                                                           'llama-3.1-8b-instant',
                                                           'llama3-8b-8192'                                                     
-                                                         ]
+                                                         ])
 
 # Criar função para retornar a mensagem do modelo
 def retorna_resposta_modelo_groq(mensagens,
