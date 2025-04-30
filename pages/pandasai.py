@@ -5,7 +5,7 @@ from groq import Groq
 
 # Configurações da página
 st.set_page_config(
-    page_title="DecoGPT",
+    page_title="PandasAI",
     page_icon="🤖",
     #layout="wide",
     #initial_sidebar_state='collapsed'
