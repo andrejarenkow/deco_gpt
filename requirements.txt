@@ -4,5 +4,4 @@ ipykernel
 streamlit
 unidecode
 groq
-pandasai
 langchain_groq
