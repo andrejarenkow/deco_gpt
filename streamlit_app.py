@@ -56,14 +56,7 @@ def retorna_resposta_modelo_groq(mensagens,
             stream=stream
         )
 
-    # Se o modelo for compound-beta, imprime as ferramentas executadas na sidebar
-    if modelo == 'compound-beta':
-        with st.sidebar:
-            st.markdown("### Ferramentas executadas:")
-            for tool in response.choices[0].message.executed_tools:
-                st.json(tool)  # ou st.write(tool) ou st.print(tool)
 
-    return response
 
 # Função para armazenar a página principal
 def pagina_principal():
