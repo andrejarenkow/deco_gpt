@@ -110,7 +110,7 @@ def main():
                 'llama3-8b-8192',
                 'meta-llama/llama-4-scout-17b-16e-instruct'
             ],
-            default=DEFAULT_MODEL
+            #default=DEFAULT_MODEL
         )
 
         temperatura = st.slider(
