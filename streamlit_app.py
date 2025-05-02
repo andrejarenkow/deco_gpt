@@ -102,5 +102,7 @@ def pagina_principal():
     if st.sidebar.button("Limpar conversa"):
             st.session_state.mensagens = []
             mensagens = []
+            # Força uma atualização da página
+            st.experimental_rerun()
 
 pagina_principal()
