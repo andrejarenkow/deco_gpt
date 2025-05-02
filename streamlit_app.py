@@ -103,6 +103,6 @@ def pagina_principal():
             st.session_state.mensagens = []
             mensagens = []
             # Força uma atualização da página
-            st.experimental_rerun()
+            st.rerun()
 
 pagina_principal()
