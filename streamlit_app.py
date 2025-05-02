@@ -26,14 +26,13 @@ clientgroq = Groq(
     api_key=GROQ_API_KEY,
 )
 
-
 # Selecionando o modelo que vai fazer a resposta
 with st.sidebar:
     model = st.selectbox('Selecione o modelo', options=['deepseek-r1-distill-llama-70b',
                                                           'llama-3.3-70b-versatile',
                                                           'llama-3.1-8b-instant',
                                                           'llama3-8b-8192',
-                                                       'compound-beta'])
+                                                          'compound-beta'])
 
 # Criar função para retornar a mensagem do modelo
 def retorna_resposta_modelo_groq(mensagens,
@@ -56,6 +55,13 @@ def retorna_resposta_modelo_groq(mensagens,
             temperature=temperatura,
             stream=stream
         )
+
+    # Se o modelo for compound-beta, imprime as ferramentas executadas na sidebar
+    if modelo == 'compound-beta':
+        with st.sidebar:
+            st.markdown("### Ferramentas executadas:")
+            for tool in response.choices[0].message.executed_tools:
+                st.json(tool)  # ou st.write(tool) ou st.print(tool)
 
     return response
 
@@ -94,8 +100,6 @@ def pagina_principal():
         if resposta_completa:
             nova_mensagem = {'role': 'assistant', 'content': resposta_completa}
             mensagens.append(nova_mensagem)
-
-
 
         st.session_state['mensagens'] = mensagens
 
