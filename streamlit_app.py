@@ -101,6 +101,6 @@ def pagina_principal():
 
     if st.button("Limpar conversa"):
             st.session_state.mensagens = []
-            st.experimental_rerun()
+            mensagens = []
 
 pagina_principal()
