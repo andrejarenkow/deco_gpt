@@ -100,7 +100,7 @@ def main():
     # Selecionando o modelo que vai fazer a resposta
     with st.sidebar:
         st.header("Configurações")
-        #global model
+        global model
         model = st.selectbox(
             'Selecione o modelo',
             options=[
