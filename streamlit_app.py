@@ -8,7 +8,7 @@ import uuid
 st.set_page_config(
     page_title="DecoGPT",
     page_icon="🤖",
-    #layout="wide",
+    layout="wide",
     initial_sidebar_state='expanded'
 )
 
@@ -98,5 +98,9 @@ def pagina_principal():
 
 
         st.session_state['mensagens'] = mensagens
+
+    if st.button("Limpar conversa"):
+            st.session_state.mensagens = []
+            st.experimental_rerun()
 
 pagina_principal()
