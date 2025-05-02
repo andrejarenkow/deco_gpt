@@ -99,7 +99,7 @@ def pagina_principal():
 
         st.session_state['mensagens'] = mensagens
 
-    if st.button("Limpar conversa"):
+    if st.sidebar.button("Limpar conversa"):
             st.session_state.mensagens = []
             mensagens = []
 
