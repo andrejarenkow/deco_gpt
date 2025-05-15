@@ -47,7 +47,7 @@ def retorna_resposta_modelo_groq(mensagens,
             messages=mensagens,
             temperature=temperatura,
             stream=stream,
-            reasoning_format="hidden"  # Adiciona o parâmetro para este modelo específico
+            #reasoning_format="hidden"  # Adiciona o parâmetro para este modelo específico
         )
     else:
         response = clientgroq.chat.completions.create(
